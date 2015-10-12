@@ -1,5 +1,6 @@
 package com.test;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -7,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HelloWorld {
 
     @RequestMapping("/")
-    public String index() {
-        return "Hello from Spring Boot!";
+    public String index(@RequestParam(value="name", defaultValue = "JAVA") String name) {
+        return "Hello " + name + " from Spring Boot! ";
     }
 
 }
